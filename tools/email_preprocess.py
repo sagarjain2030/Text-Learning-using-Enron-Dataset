@@ -54,9 +54,9 @@ def preprocess(words_file = "../tools/word_data.pkl", authors_file="../tools/ema
     ### feature selection, because text is super high dimensional and 
     ### can be really computationally chewy as a result
 
-    #selector = SelectPercentile(f_classif, percentile=10)
+    selector = SelectPercentile(f_classif, percentile=10)
     #making percentile 1 for lesson 3 quiz
-    selector = SelectPercentile(f_classif, percentile=1)
+    #selector = SelectPercentile(f_classif, percentile=1)
 
     selector.fit(features_train_transformed, labels_train)
     features_train_transformed = selector.transform(features_train_transformed).toarray()
